@@ -1,6 +1,6 @@
 package CirCylTask;
 
-public abstract class Hub implements taskInterface {
+public class Hub implements taskInterface {
 
 	 int radius;
 	double height;
@@ -23,6 +23,30 @@ public abstract class Hub implements taskInterface {
 	return Circumference= 2 * Math.PI * radius ;
 	
 
+	}
+
+	@Override
+	public void circumference() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void circleArea() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void rectangleArea() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void cylinderArea() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

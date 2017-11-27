@@ -1,6 +1,7 @@
 package CirCylTask;
 
-public abstract class circle  extends rectangle {
+public  class circle  extends rectangle {
+	double CircleArea;
 	
 
 
@@ -19,6 +20,16 @@ public void circleArea(){
 	double CircleArea= Math.PI * radius * radius;
 	System.out.println("Area of the circle: "+CircleArea);
 	
+	
+}
+
+public double circArea(){
+	
+	
+	
+	
+	double CircArea= Math.PI * radius * radius;
+	return CircArea;
 	
 }
 }

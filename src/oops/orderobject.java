@@ -48,7 +48,13 @@ public class orderobject {
 
 	//   
 	
+	 
 	//better to practice to write as this.variable**
+	public void  shippingAddress(shipping address){
+		System.out.println("city"+ address.city + "state: "+address.state+ "country: " +address.country );
+		
+		
+	}
 	 //third
 	void orderConfirmation(int select,int quantity){
 		if(select == orderID){
@@ -75,6 +81,7 @@ public class orderobject {
 			System.out.println(remainingbalance+"refunded to your account.ready to pack");
 
 		}else{System.out.println("ready to pack");}
+		noOfItemsLeft=noOfItemsLeft-quantity;
 		//calling address method
 		
 		

@@ -5,12 +5,14 @@ import java.io.*;
 import java.text.StringCharacterIterator;
 import java.util.Scanner;
 public class testorder {
-	shipping address;
+	
 	
 
 	public static void main(String[] args)throws IOException{
-		shipping address;
+		
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		Scanner sc=new Scanner(System.in);
+	
 		
 		
 		//parameterized constructor
@@ -23,19 +25,28 @@ public class testorder {
 		System.out.println("noOfItems: ");
 		values1.noOfItemsLeft=Integer.parseInt(br.readLine());
 		values1.price=100;
+		System.out.println("Enter sel: quantity: and paid amountpaid: ");
+		int sel=sc.nextInt();
+		int quan=sc.nextInt();
+		int amounpaid=sc.nextInt();
 		
-		values1.orderConfirmation(3,2,1000);
+		values1.orderConfirmation(sel,quan,amounpaid);
 		
 		values1.printdetails();
-		
-		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter city");
-		
-		String city=sc.next();
+		String cit=sc.next();
 		System.out.println("Enter State");
-		String State=sc.next();
+		String stat=sc.next();
+		System.out.println("Enter Country");
+		String contry=sc.next();
+		shipping address=new shipping(cit,stat,contry);
+		values1.shippingAddress(address);
 		
-	System.out.println(city+"\n"+State);
+		
+		
+		
+		
+	
 		
 	//values1.detailsEnter(shipping address);
 		

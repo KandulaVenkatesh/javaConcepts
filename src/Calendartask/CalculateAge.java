@@ -15,7 +15,7 @@ public class CalculateAge {
 		
 		System.out.println(dateFormat);
 		
-		Date dob=dateFormat.parse("03/11/1560");
+		Date dob=dateFormat.parse("03/11/1994");
 		
 		
 		Calendar dobCalendar =Calendar.getInstance();
@@ -23,8 +23,10 @@ public class CalculateAge {
 		dobCalendar.setTime(dob);
 		System.out.println(dobCalendar);
 		 int age = todayCalendar.get(Calendar.YEAR) - dobCalendar.get(Calendar.YEAR);
+		 int day = todayCalendar.get(Calendar.DAY_OF_YEAR) - dobCalendar.get(Calendar.DAY_OF_YEAR);
+		 int hours=todayCalendar.get(Calendar.HOUR_OF_DAY) - dobCalendar.get(Calendar.HOUR_OF_DAY);
 		 
-		 System.out.println("age is :" + age);
+		 System.out.println("age is :" + age+ "years" +day+"days: "  +hours+"hours");
 		
 
 	}

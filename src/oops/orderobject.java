@@ -3,6 +3,7 @@ package oops;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 import org.omg.Messaging.SyncScopeHelper;
 
@@ -51,6 +52,7 @@ public class orderobject {
 	 
 	//better to practice to write as this.variable**
 	public void  shippingAddress(shipping address){
+		
 		System.out.println("city"+ address.city + "state: "+address.state+ "country: " +address.country );
 		
 		

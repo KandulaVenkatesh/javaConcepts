@@ -10,7 +10,7 @@ public class testArea {
 		int rad=sc.nextInt();
 		System.out.println("Enter Height of a cylinder");
 		double heigh=sc.nextDouble();
-		System.out.println(rad +":"+ heigh);
+		System.out.println("radius :"+ rad +"\nheight"+ heigh);
 		sc.close();
 		
 	

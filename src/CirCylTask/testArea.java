@@ -2,7 +2,7 @@ package CirCylTask;
 
 import java.util.Scanner;
 
-public class testArea {
+public class TestArea {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
@@ -14,18 +14,18 @@ public class testArea {
 		sc.close();
 		
 	
-	circle c1=new circle(rad,heigh);
+	Circle c1=new Circle(rad,heigh);
 c1.circleArea();
-	c1.rectangleArea();
-	double a= c1.circArea();
-	rectangle r1= new rectangle(rad,heigh);
 	
 	
-	double areaOfCylinder= 2 * a + r1.rectArea()  ;
-	System.out.println("AOC: "+areaOfCylinder);
-	
-	
+	Rectangle r1= new Rectangle(rad,heigh);
+	r1.rectangleArea();
+
+	Cylinder cylinder=new Cylinder(c1, r1);
 		// TODO Auto-generated method stub	
+	cylinder.circle=c1;
+	cylinder.rectangle=r1;
+	System.out.println("area is : "+cylinder.cylinderArea());
 	
 	}
 

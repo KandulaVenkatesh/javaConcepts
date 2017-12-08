@@ -1,6 +1,6 @@
 package CirCylTask;
 
-public class Hub implements taskInterface {
+public  class Hub implements TaskInterface {
 
 	 int radius;
 	double height;
@@ -47,6 +47,18 @@ public class Hub implements taskInterface {
 	public void cylinderArea() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public double circArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double rectArea() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

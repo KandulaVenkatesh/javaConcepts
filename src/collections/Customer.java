@@ -25,7 +25,7 @@ public class Customer {
 
 		Customer customer2=(Customer)obj;
 		if(customer2 != null){
-		if(this.name==customer2.name && this.gender.equals(customer2.gender)&& this.birthday.equals(customer2.birthday)&&this.Email==customer2.Email){
+		if(this.name.equals(customer2.name) && this.gender.equals(customer2.gender)&& this.birthday.equals(customer2.birthday)&&this.Email.equals(customer2.Email)){
 			return true;
 		}
 		}

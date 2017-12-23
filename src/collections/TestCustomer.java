@@ -40,7 +40,7 @@ public class TestCustomer {
 			
 		}
 		
-		System.out.println("female greater than age 18");
+		System.out.println("female greater than age 20");
 		System.out.println("");
 		ArrayList<Customer> subListByGen=listByGender(alC, 20, Gender.FEMALE);
 		for (Customer customer : subListByGen) {

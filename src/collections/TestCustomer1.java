@@ -1,4 +1,5 @@
 package collections;
+
 import java.beans.Customizer;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -10,19 +11,23 @@ import java.util.ListIterator;
 import java.util.stream.Stream;
 
 import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
+
+
 //class
  public class TestCustomer1 {
-static Object obj;
-	//generic method	 
-static  ArrayList<Customer> listCreator(ArrayList<Customer> a,ListGen< Customer> listgen){
-			 ArrayList<Customer> listbyGeneric=new ArrayList<Customer>();
+
+		 static  ArrayList<Customer> listCreator(ArrayList<Customer> a,ListGen< Customer> listgen){
+			 ArrayList<Customer> listbyGeneric=new ArrayList<Customer>();//=listgen.compareGenericMethod(a, );
+			
 			 for(int i=0;i<a.size();i++){
-				 if(listgen.compareGenericMethod(a.get(i), obj==null) != null){
-				 listbyGeneric.add(listgen.compareGenericMethod(a.get(i), obj));}
+				 if(listgen.compareGenericMethod(a.get(i)) != null){
+				 listbyGeneric.add(listgen.compareGenericMethod(a.get(i)));}
 			 ;}
-	 return listbyGeneric;
+	 
+					
+					return listbyGeneric;
 						
-		};
+					};
 		public static void main(String[] args) {
 		ArrayList<Customer> alC=new ArrayList<Customer>();
 		alC.add(new Customer("x",Gender.MALE,LocalDate.of(1999,10,9),"x@gmail.com"));
@@ -37,14 +42,14 @@ static  ArrayList<Customer> listCreator(ArrayList<Customer> a,ListGen< Customer>
 		alC.add(new Customer("suma",Gender.FEMALE,LocalDate.of(1998, 5, 9),"suma@gmail.com"));
 		
 			
-//		//first possibility without generics .
-		ArrayList<Customer> sublis=ListGen.compareGenericMethod1(alC, 'r');//this method is defined inside functional interface
+//		//first possibility
+		ArrayList<Customer> sublis=ListGen.compareGenericMethod1(alC, 'r');
 		for (Customer customer : ListGen.compareGenericMethod1(alC, 'r')) {
 			System.out.println(customer.getName());
 		}
 	//second possibility by using generics
-		//for the names based on character
-		ListGen<Customer> listChar=(x,c)->{  
+		System.out.println("for generics");
+		ListGen<Customer> listChar=(x)->{  
 			if(x.getName().charAt(0)=='r'){
 			  return x; }
 		return null;
@@ -57,7 +62,7 @@ static  ArrayList<Customer> listCreator(ArrayList<Customer> a,ListGen< Customer>
 		};
 		System.out.println("filter list by age");
 		//forAge
-		ListGen<Customer> listAge=(x,c)->{
+		ListGen<Customer> listAge=(x)->{
 		LocalDate presentDate=LocalDate.now();
 		if((presentDate.getYear()-x.getBirthday().getYear())>20){
 			return x;
@@ -72,7 +77,7 @@ static  ArrayList<Customer> listCreator(ArrayList<Customer> a,ListGen< Customer>
 		}
  //for gender
 		System.out.println("filter list by gender");
-		ListGen<Customer> listGender=(x,c)->{
+		ListGen<Customer> listGender=(x)->{
 		if(x.getGender().equals(Gender.FEMALE)){
 				return x;
 			}return null;};

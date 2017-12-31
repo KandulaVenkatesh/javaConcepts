@@ -1,8 +1,10 @@
 package collections;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.ListIterator;
 
 public class Customer {
 
@@ -11,7 +13,9 @@ public class Customer {
 	private	Gender gender;
 	private	LocalDate birthday;
 	private	String Email;
-	
+	public Customer(){
+		
+	}
 	
 	public Customer(String name,Gender gender, LocalDate birthday, String email) {
 		setName(name);
@@ -60,6 +64,17 @@ public class Customer {
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
+//	void sortChar(ListChar1<Customer> c) {
+//        Customer[] a ;
+//        Arrays.sort(a, (Comparator) c);
+//        for (Customer customer : a) {
+//			
+//		}
+//        ListIterator<Customer> i ;        for (Object e : a) {
+//            i.next();
+//            i.set((Customer) e);
+//        }
+//    }
 	
 		
 	}
@@ -67,6 +82,5 @@ public class Customer {
 		
 
 	
-
 
 

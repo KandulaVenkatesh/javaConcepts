@@ -10,23 +10,19 @@ import java.util.ListIterator;
 import java.util.stream.Stream;
 
 import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
-
-
 //class
  public class TestCustomer1 {
 static Object obj;
-		 static  ArrayList<Customer> listCreator(ArrayList<Customer> a,ListGen< Customer> listgen){
-			 ArrayList<Customer> listbyGeneric=new ArrayList<Customer>();//=listgen.compareGenericMethod(a, );
-			
+	//generic method	 
+static  ArrayList<Customer> listCreator(ArrayList<Customer> a,ListGen< Customer> listgen){
+			 ArrayList<Customer> listbyGeneric=new ArrayList<Customer>();
 			 for(int i=0;i<a.size();i++){
 				 if(listgen.compareGenericMethod(a.get(i), obj==null) != null){
 				 listbyGeneric.add(listgen.compareGenericMethod(a.get(i), obj));}
 			 ;}
-	 
-					
-					return listbyGeneric;
+	 return listbyGeneric;
 						
-					};
+		};
 		public static void main(String[] args) {
 		ArrayList<Customer> alC=new ArrayList<Customer>();
 		alC.add(new Customer("x",Gender.MALE,LocalDate.of(1999,10,9),"x@gmail.com"));
@@ -41,12 +37,13 @@ static Object obj;
 		alC.add(new Customer("suma",Gender.FEMALE,LocalDate.of(1998, 5, 9),"suma@gmail.com"));
 		
 			
-//		//first possibility
-		ArrayList<Customer> sublis=ListGen.compareGenericMethod1(alC, 'r');
+//		//first possibility without generics .
+		ArrayList<Customer> sublis=ListGen.compareGenericMethod1(alC, 'r');//this method is defined inside functional interface
 		for (Customer customer : ListGen.compareGenericMethod1(alC, 'r')) {
 			System.out.println(customer.getName());
 		}
 	//second possibility by using generics
+		//for the names based on character
 		ListGen<Customer> listChar=(x,c)->{  
 			if(x.getName().charAt(0)=='r'){
 			  return x; }

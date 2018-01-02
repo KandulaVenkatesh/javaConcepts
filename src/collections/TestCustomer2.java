@@ -14,21 +14,21 @@ import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 
 
 //class
- public class TestCustomer2 {
+public class TestCustomer2 {
 
-		 static  ArrayList<Customer> listCreator(ArrayList<Customer> a,ListGen< Customer> listgen){
-			 ArrayList<Customer> listbyGeneric=new ArrayList<Customer>();//=listgen.compareGenericMethod(a, );
-			
-			 for(int i=0;i<a.size();i++){
-				 if(listgen.compareGenericMethod(a.get(i)) != null){
-				 listbyGeneric.add(listgen.compareGenericMethod(a.get(i)));}
-			 ;}
-	 
-					
-					return listbyGeneric;
-						
-					};
-		public static void main(String[] args) {
+	static  ArrayList<Customer> listCreator(ArrayList<Customer> a,ListGen< Customer> listgen){
+		ArrayList<Customer> listbyGeneric=new ArrayList<Customer>();
+
+		for(int i=0;i<a.size();i++){
+			if(listgen.compareGenericMethod(a.get(i)) != null){
+				listbyGeneric.add(listgen.compareGenericMethod(a.get(i)));}
+			;}
+
+
+		return listbyGeneric;
+
+	};
+	public static void main(String[] args) {
 		ArrayList<Customer> alC=new ArrayList<Customer>();
 		alC.add(new Customer("x",Gender.MALE,LocalDate.of(1999,10,9),"x@gmail.com"));
 		alC.add(new Customer("y",Gender.FEMALE,LocalDate.of(1998, 12, 4),"y@gmail.com"));
@@ -40,23 +40,24 @@ import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 		alC.add(new Customer("raj",Gender.MALE,LocalDate.of(1993, 2, 23),"raj@gmail.com"));
 		alC.add(new Customer("Hari",Gender.MALE,LocalDate.of(1994, 2, 16),"Hari@gmail.com"));
 		alC.add(new Customer("suma",Gender.FEMALE,LocalDate.of(1998, 5, 9),"suma@gmail.com"));
-		
-			
-//		//first possibility
-		ArrayList<Customer> sublis=ListGen.compareGenericMethod1(alC, 'r');
-		for (Customer customer : ListGen.compareGenericMethod1(alC, 'r')) {
-			System.out.println(customer.getName());
-		}
-	//second possibility by using generics
+
+
+		//		
+		//second possibility by using generics
 		System.out.println("for generics");
 		ArrayList<Customer> list1=listCreator(alC, (x)->{  
 			if(x.getName().charAt(0)=='r'){
-				  return x; }
+				return x; }
 			return null;
-			  });//logic passed dynamically
+		});//logic passed dynamically
+//		ArrayList<Customer> lista=listCreator(alC, (x)->{  
+//			if(x.getName().charAt(0)=='r'){
+//				return true; }
+//			return false;
+//		});
 		for (Customer customer : list1) {
 			System.out.println(customer.getName());
-			
+
 		};
 		System.out.println("filter list by age");
 		//forAge
@@ -65,23 +66,33 @@ import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 			if((presentDate.getYear()-x.getBirthday().getYear())>20){
 				return x;
 			}
-		return null;});//logic passed dynamically
+			return null;});//logic passed dynamically
+//		ArrayList<Customer> listb=listCreator(alC, (x)->{
+//			LocalDate presentDate=LocalDate.now();
+//			if((presentDate.getYear()-x.getBirthday().getYear())>20){
+//				return true;
+//			}
+//			return false;});
 		for (Customer customer : list2) {
 			System.out.println(customer.getName());
 			System.out.println(customer.getBirthday());
-			}
- //for gender
+		}
+		//for gender
 		System.out.println("filter list by gender");
 		ArrayList<Customer> list3=listCreator(alC,  (x)->{
-		if(x.getGender().equals(Gender.FEMALE)){
+			if(x.getGender().equals(Gender.FEMALE)){
 				return x;
 			}return null;});//logic passed dynamically
+//		ArrayList<Customer> listc=listCreator(alC,  (x)->{
+//			if(x.getGender().equals(Gender.FEMALE)){
+//				return true;
+//			}return false;});
 		for (Customer customer : list3) {
 			System.out.println(customer.getName());
 			System.out.println(customer.getGender());
-			
+
 		}}}
-	
-	
+
+
 
 
